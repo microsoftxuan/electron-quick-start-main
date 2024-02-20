@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+  <meta http-equiv="Content-Security-Policy"
+    content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'">
+  <link href="./styles.css" rel="stylesheet">
+  <title></title>
+</head>
+<style type="text/css">
+  .j1 {
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    border: 2px solid limegreen;
+    position: absolute;
+    left: 300px;
+    top: 300px;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+  }
+
+  .z {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: linear-gradient(-180deg, #aaff80 13%, #67c23a 91%);
+    /* position: relative;
+    left: 197px;
+    top: 100px; */
+  }
+
+  .max {
+    width: 300px;
+    height: 300px;
+    background: white;
+    /* background-color: rgba(255, 255, 255, 0.5); */
+    border-radius: 40%;
+    float: left;
+    position: absolute;
+    top: 50px;
+    left: 100px;
+    transform: translate(-50%, -70%) rotate(0);
+    animation: toRtate 10s linear -5s infinite;
+    z-index: 2;
+  }
+
+  @keyframes toRtate {
+    50% {
+      transform: translate(-50%, -70%) rotate(180deg);
+    }
+
+    100% {
+      transform: translate(-50%, -70%) rotate(360deg);
+    }
+  }
+
+  .j1 {
+    overflow: hidden;
+    cursor: pointer;
+  }
+  .text {
+    position: absolute;
+    left: 43%;
+    bottom: 0%;
+    /* color: transparent; */
+    /* background-color: rgba(255, 255, 255, 0.5); */
+  }
+</style>
+
+<body>
+  <h1>360加速球</h1>
+  We are using Node.js <span id="node-version"></span>,
+  Chromium <span id="chrome-version"></span>,
+  and Electron <span id="electron-version"></span>.
+  <div class="j1">
+    <div class="z"></div>
+    <div class="max"></div>
+    <span class="text">50%</span>
+  </div>
+
+  <div></div>
+  <!-- You can also require other files to run in this process -->
+  <script src="./renderer.js"></script>
+</body>
+
+</html>
